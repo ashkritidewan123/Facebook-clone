@@ -7,6 +7,11 @@ const likeschema=new mongoose.Schema({
         required:true
     },
 
+    username:{
+        type:String,
+        required:true
+    },
+
     likesnum:{
         type:Number,
         required:true
