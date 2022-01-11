@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 const comments=new mongoose.Schema({
 
-    post:{
+    postmedia:{
         type:String,
         required: true
     },

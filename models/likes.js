@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 
 const likeschema=new mongoose.Schema({
 
-    post:{
+    postmedia:{
         type:String,
         required:true
     },

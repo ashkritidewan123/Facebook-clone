@@ -7,7 +7,7 @@ const postschema=new mongoose.Schema({
         required:true
     },
 
-    usernama:{
+    postmedia:{
         type:String,
         required:true
     },

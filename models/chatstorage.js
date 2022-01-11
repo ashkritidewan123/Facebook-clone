@@ -2,12 +2,12 @@ const mongoose=require('mongoose');
 
 const chatschema=new mongoose.Schema({
 
-    sender:{
+    senderUName:{
         type:String,
         required:true
     },
 
-    recipient:{
+    recipientUName:{
         type:String,
         required:true
     },
