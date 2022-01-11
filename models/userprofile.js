@@ -1,6 +1,11 @@
 const mongoose=require('mongoose');
 
-const userprofile=new mongoose.Schema({
+const userprofileschema=new mongoose.Schema({
+
+    username:{
+        type:String,
+        required:true
+    },
 
     firstname:{
         type:String,
@@ -39,5 +44,4 @@ const userprofile=new mongoose.Schema({
     status:String
 });
 
-const userdb= mongoose.model('userdb',schema);
-module.exports=userdb;
+module.exports = mongoose.model("profile",userprofileschema,"profiles");
