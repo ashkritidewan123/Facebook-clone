@@ -41,7 +41,12 @@ const userprofileschema=new mongoose.Schema({
         required:true
     },
 
-    status:String
-});
+    posts: [{ type: Schema.Types.ObjectId, ref: 'post' }],
 
+    friends: [{ type: Schema.Types.ObjectId, ref: 'friend' }]
+
+    
+});
+const post = mongoose.model('posts', postschema);
+const friend = mongoose.model('friends', friendschema);
 module.exports = mongoose.model("profile",userprofileschema,"profiles");

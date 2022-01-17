@@ -21,6 +21,10 @@ const postschema=new mongoose.Schema({
         type:String,
         required:true
     },
+
+    comments: [{ type: Schema.Types.ObjectId, ref: 'comment' }],
+
+    likes: [{ type: Schema.Types.ObjectId, ref: 'like' }]
     
     // postlocation:{      // location to be added in the post which can be any location
     //     type:String
@@ -40,5 +44,6 @@ const postschema=new mongoose.Schema({
     // }
 
 })
-
+const comment = mongoose.model('comments', commentschema);
+const like = mongoose.model('likes', likeschema);
 module.exports = mongoose.model("post",postschema,"posts");

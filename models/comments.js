@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 
-const comments=new mongoose.Schema({
+const commentschema=new mongoose.Schema({
 
     postmedia:{
         type:String,
