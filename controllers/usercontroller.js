@@ -8,7 +8,7 @@ const userprofileschema=require('../models/userprofile');
 
 // }
 
-exports.register = function (req, res) {
+exports.registeruser = function (req, res) {
     res.send({
         username:'',
         firstname:'',
@@ -21,15 +21,18 @@ exports.register = function (req, res) {
     });
 };
 
-exports.login=function(req,res){
+exports.loginuser=function(req,res){
     res.send("this is the login");
 }
 
-exports.logout=function(req,res){
+exports.logoutuser=function(req,res){
     res.send("we are logged out");
 }
 
-exports.search=function(req,res){
+exports.searchuser=function(req,res){
     res.send("here you can search the people");
 }
 
+exports.deleteuser=function(req,res){
+    res.send("")
+}
