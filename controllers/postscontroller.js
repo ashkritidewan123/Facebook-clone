@@ -6,7 +6,7 @@ exports.addpost=function(req,res){
     let post = new postschema(reqData);
     post.save(function (err, postdata) {
     if (err) {
-      res.status(500).json({ status: "error", message: "Error: Something went wrong. Couldn't add your review." });
+      res.status(500).json({ status: "error", message: "Error: Something went wrong. Couldn't add your post." });
     } else {
       res.json({ status: "success", data: postdata });
     }
