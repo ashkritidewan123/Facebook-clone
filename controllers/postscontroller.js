@@ -14,11 +14,11 @@ exports.addpost=function(req,res){
 }
 
 exports.deletepost=function(req,res){
-    res.send("delete the post");
+    res.send("delete post");
 }
 
 exports.editpost=function(req,res){
-    res.send("edit the post");
+    res.send("edit post");
 }
 
 

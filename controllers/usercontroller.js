@@ -9,21 +9,55 @@ const userprofileschema=require('../models/userprofile');
 // }
 
 exports.registeruser = function (req, res) {
-    res.send({
-        username:'',
-        firstname:'',
-        lastname:'',
-        email:'',
-        mobilenum:'',
-        dob:'',
-        password:'',
-        gender:''
-    });
+    // let user=new userprofileschema();
+    // user.username=req.body.username;
+    // user.firstname=req.body.firstname;
+    // user.lastname=req.body.lastname;
+    // user.email=req.body.email;
+    // user.mobilenum=req.body.mobilenum;
+    // user.dob=req.body.dob;
+    // user.password=req.body.password;
+    // user.gender=req.body.gender;
+
+    userprofileschema.create([{
+        username:req.body.username,
+        firstname:req.body.firstname,
+        lastname:req.body.lastname,
+        email:req.body.email,
+        mobilenum:req.body.mobilenum,
+        dob:req.body.dob,
+        password:req.body.password,
+        gender:req.body.gender
+    }], (err,userinfo)=>{
+        if (err) {
+            console.log("There is an error " + err);
+            return res.status(500).json({
+              status: "error",
+              message: "Error:Something went wrong",
+            });
+          }
+          else
+            res.json({ status: "success", data: user });
+    })
 };
 
 exports.loginuser=function(req,res){
-    res.send("this is the login");
-}
+    let email=req.body.email;
+    let pass=req.body.password;
+    userprofileschema.findOne({email:email,password:pass},(err,user)=>{
+            if (err) {
+              console.log("Error: While login" + err);
+              return res.status(500).json({
+                status: "error",
+                message: "Error: Something went wrong",
+              });
+            }
+            res.json({
+              status: "success",
+              message: "User login successfull",
+            });
+    });
+};
 
 exports.logoutuser=function(req,res){
     res.send("we are logged out");

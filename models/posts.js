@@ -44,6 +44,7 @@ const postschema=new mongoose.Schema({
     // }
 
 })
+
 const comment = mongoose.model('comments', commentschema);
 const like = mongoose.model('likes', likeschema);
 module.exports = mongoose.model("post",postschema,"posts");
