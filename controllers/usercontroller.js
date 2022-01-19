@@ -68,5 +68,20 @@ exports.searchuser=function(req,res){
 }
 
 exports.deleteuser=function(req,res){
-    res.send("")
+  let email=req.body.email;
+  let pass=req.body.password;
+
+  userprofileschema.deleteOne({email:email,password:pass},(err,user)=>{
+    if (err) {
+      console.log("Error: While deleting user" + err);
+      return res.status(500).json({
+        status: "error",
+        message: "Error: Something went wrong, the user could not be deleted",
+      });
+    }
+    res.json({
+      status: "success",
+      message: "The user is deleted successfully",
+    });
+  })
 }

@@ -4,7 +4,7 @@ const usercontroller = require('../controllers/usercontroller');
 const router= express.Router();
 
 router.post("/",usercontroller.register);
-router.get("/login",usercontroller.login);
+router.post("/login",usercontroller.login);
 router.get("/logout", usercontroller.logout);
 router.get("/:id",usercontroller.search);
 router.get("/:id",usercontroller.delete);

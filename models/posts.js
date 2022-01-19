@@ -2,10 +2,13 @@ const mongoose=require('mongoose');
 
 const postschema=new mongoose.Schema({
 
-    username:{
-        type:String,
-        required:true
-    },
+    // username:{
+    //     type:String,
+    //     required:true
+    // },
+
+
+    username: { type: Schema.Types.ObjectId, ref: 'post' },
 
     postmedia:{
         type:String,
@@ -44,7 +47,7 @@ const postschema=new mongoose.Schema({
     // }
 
 })
-
+const user = mongoose.model('userprofile', userprofileschema);
 const comment = mongoose.model('comments', commentschema);
 const like = mongoose.model('likes', likeschema);
 module.exports = mongoose.model("post",postschema,"posts");
