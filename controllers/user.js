@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const userprofileschema=require('../models/userprofile');
+const userprofileschema=require('../models/user');
 
 // module.exports.register=async(req,res)=>{
 //     // let reqdata=req.body;
@@ -37,7 +37,7 @@ exports.registeruser = function (req, res) {
             });
           }
           else
-            res.json({ status: "success", data: user });
+            res.json({ status: "success", data: userinfo });
     })
 };
 
@@ -59,13 +59,13 @@ exports.loginuser=function(req,res){
     });
 };
 
-exports.logoutuser=function(req,res){
-    res.send("we are logged out");
-}
+// exports.logoutuser=function(req,res){
+//     res.send("we are logged out");
+// }
 
-exports.searchuser=function(req,res){
-    res.send("here you can search the people");
-}
+// exports.searchuser=function(req,res){
+//     res.send("here you can search the people");
+// }
 
 exports.deleteuser=function(req,res){
   let email=req.body.email;

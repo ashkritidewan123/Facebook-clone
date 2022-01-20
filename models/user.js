@@ -1,5 +1,4 @@
 const mongoose=require('mongoose');
-
 const userprofileschema=new mongoose.Schema({
 
     username:{
@@ -43,10 +42,10 @@ const userprofileschema=new mongoose.Schema({
 
     //posts: [{ type: Schema.Types.ObjectId, ref: 'post' }],
 
-    friends: [{ type: Schema.Types.ObjectId, ref: 'friend' }]
+    friends: [{ type: Schema.Types.ObjectId, ref: 'user' }]
 
     
 });
 // const post = mongoose.model('posts', postschema);
-const friend = mongoose.model('friends', friendschema);
-module.exports = mongoose.model("profile",userprofileschema,"profiles");
+
+module.exports = mongoose.model("user",userprofileschema,"user");

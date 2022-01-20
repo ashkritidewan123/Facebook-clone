@@ -54,29 +54,7 @@ exports.editpost=function(req,res){
         console.log("Error: While updating post: " + err);
         return res.status(500).json({ status: "error", message: "Error: Something went wrong. Couldn't update your post." });
       }
-      res.json({ status: "success", data: postdata11111111111111 });
+      res.json({ status: "success", data: postdata });
     }
   );
 }
-
-var { title, details} = req.body,
-    { reviewId } = req.params,
-    update = {};
-  if (title) {
-    update["title"] = title;
-  }
-  if (details) {
-    update["details"] = details;
-  }
-  ReviewModel.findOneAndUpdate(
-    { _id: reviewId, status: true},
-    update,
-    { new: true },
-    function (err, reviewData) {
-      if (err) {
-        console.log("Error: While updating review: " + err);
-        return res.status(500).json({ status: "error", message: "Error: Something went wrong. Couldn't update your review." });
-      }
-      res.json({ status: "success", data: reviewData });
-    }
-  );

@@ -1,16 +1,15 @@
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
+const user = require('./user');
+const post = require('./post');
 
-const likeschema=new mongoose.Schema({
+const likeschema = new mongoose.Schema({
 
     postmedia:{
         type:String,
         required:true
     },
 
-    username:{
-        type:String,
-        required:true
-    },
+    user: [{ type: Schema.Types.ObjectId, ref: 'user' }],
 
     likesnum:{
         type:Number,
@@ -19,4 +18,4 @@ const likeschema=new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model("like",likeschema,"likes");
+module.exports = mongoose.model("like",likeschema,"like");

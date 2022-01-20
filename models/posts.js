@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-
+const user = require('./user');
 const postschema=new mongoose.Schema({
 
     // username:{
@@ -8,7 +8,7 @@ const postschema=new mongoose.Schema({
     // },
 
 
-    username: { type: Schema.Types.ObjectId, ref: 'post' },
+    user: { type: Schema.Types.ObjectId, ref: 'user' },
 
     postmedia:{
         type:String,
@@ -25,9 +25,9 @@ const postschema=new mongoose.Schema({
         required:true
     },
 
-    comments: [{ type: Schema.Types.ObjectId, ref: 'comment' }],
+    //comments: [{ type: Schema.Types.ObjectId, ref: 'comment' }],
 
-    likes: [{ type: Schema.Types.ObjectId, ref: 'like' }]
+    //likes: [{ type: Schema.Types.ObjectId, ref: 'like' }]
     
     // postlocation:{      // location to be added in the post which can be any location
     //     type:String
@@ -47,7 +47,7 @@ const postschema=new mongoose.Schema({
     // }
 
 })
-const user = mongoose.model('userprofile', userprofileschema);
-const comment = mongoose.model('comments', commentschema);
-const like = mongoose.model('likes', likeschema);
-module.exports = mongoose.model("post",postschema,"posts");
+// const user = mongoose.model('userprofile', userprofileschema);
+// const comment = mongoose.model('comments', commentschema);
+// const like = mongoose.model('likes', likeschema);
+module.exports = mongoose.model("post",postschema,"post");
