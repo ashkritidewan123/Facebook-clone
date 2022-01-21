@@ -9,12 +9,12 @@ const commentschema = new mongoose.Schema({
         required: true
     },
 
-    commentnum:{        //number of comments in a particular post
+    commentnumber:{        //number of comments in a particular post
         type:Number,
         required: true
     },
 
-    user: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+    users: [{ type: Schema.Types.ObjectId, ref: 'user' }],
 
     postid: { type: Schema.Types.ObjectId, ref: 'post' },
 

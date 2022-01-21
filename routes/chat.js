@@ -1,10 +1,10 @@
 const express = require('express');
-const chatcontroller = require('../controllers/chat');
+const chat = require('../controllers/chat');
 
 const router= express.Router();
 
-router.post("/",chatcontroller.sendmessage);
-router.delete("/",chatcontroller.deletemessage);
+router.post("/",chat.sendmessage);
+router.delete("/:id",chat.deletemessage);
 
 
 module.exports = router;

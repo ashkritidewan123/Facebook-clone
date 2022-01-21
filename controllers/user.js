@@ -28,7 +28,7 @@ exports.registeruser = function (req, res) {
         dob:req.body.dob,
         password:req.body.password,
         gender:req.body.gender
-    }], (err,userinfo)=>{
+    }], (err,user)=>{
         if (err) {
             console.log("There is an error " + err);
             return res.status(500).json({
@@ -37,14 +37,14 @@ exports.registeruser = function (req, res) {
             });
           }
           else
-            res.json({ status: "success", data: userinfo });
+            res.json({ status: "success", data: user });
     })
 };
 
 exports.loginuser=function(req,res){
     let email=req.body.email;
     let pass=req.body.password;
-    userprofileschema.findOne({email:email,password:pass},(err,user)=>{
+    userprofileschema.find({email:email,password:pass},(err,user)=>{
             if (err) {
               console.log("Error: While login" + err);
               return res.status(500).json({

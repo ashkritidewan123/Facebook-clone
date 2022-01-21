@@ -9,7 +9,7 @@ const likeschema = new mongoose.Schema({
         required:true
     },
 
-    user: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+    users: [{ type: Schema.Types.ObjectId, ref: 'user' }],
 
     likesnum:{
         type:Number,
