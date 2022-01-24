@@ -42,7 +42,7 @@ const userprofileschema=new mongoose.Schema({
 
     //posts: [{ type: Schema.Types.ObjectId, ref: 'post' }],
 
-    friends: [{ type: Schema.Types.ObjectId, ref: 'user' }]
+    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }]
 
     
 });

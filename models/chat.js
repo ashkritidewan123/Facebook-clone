@@ -2,9 +2,9 @@ const mongoose=require('mongoose');
 const user = require('./user');
 const chatschema=new mongoose.Schema({
 
-    sender: { type: Schema.Types.ObjectId, ref: 'user' },
+    sender: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
 
-    recipient: { type: Schema.Types.ObjectId, ref: 'user' },
+    recipient: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
 
     message:{
         type:String,

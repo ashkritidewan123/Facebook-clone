@@ -14,9 +14,9 @@ const commentschema = new mongoose.Schema({
         required: true
     },
 
-    users: [{ type: Schema.Types.ObjectId, ref: 'user' }],
+    users: [{ type: mongoose.Schema.Types.ObjectId, ref: 'user' }],
 
-    postid: { type: Schema.Types.ObjectId, ref: 'post' },
+    postid: { type: mongoose.Schema.Types.ObjectId, ref: 'post' },
 
     commentdata:{
         type:String,

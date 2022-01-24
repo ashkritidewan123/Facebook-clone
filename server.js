@@ -7,7 +7,7 @@ let postrouter = require('./routes/post');
 let chatrouter = require('./routes/chat');
 
 app.use(express.json());
-
+app.listen(port,()=>{});
 app.use('/', userrouter);
 app.use('/', postrouter);
 app.use('/', chatrouter);

@@ -8,7 +8,7 @@ const userprofileschema=require('../models/user');
 
 // }
 
-exports.registeruser = function (req, res) {
+exports.register = function (req, res) {
     // let user=new userprofileschema();
     // user.username=req.body.username;
     // user.firstname=req.body.firstname;
@@ -29,11 +29,12 @@ exports.registeruser = function (req, res) {
         password:req.body.password,
         gender:req.body.gender
     }], (err,user)=>{
+      console.log(req.body);
         if (err) {
             console.log("There is an error " + err);
             return res.status(500).json({
               status: "error",
-              message: "Error:Something went wrong",
+              message: err||"ashkriti",
             });
           }
           else

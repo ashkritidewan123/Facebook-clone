@@ -8,7 +8,7 @@ const postschema=new mongoose.Schema({
     // },
 
 
-    user: { type: Schema.Types.ObjectId, ref: 'user' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
 
     postmedia:{
         type:String,
