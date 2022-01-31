@@ -1,23 +1,29 @@
 const mongoose = require('mongoose');
 // const postschema=require('../models/posts');
-const postschema = require('../models/chat');
+const chatschema = require('../models/chat');
 
-exports.sendmessage=function(req,res){
-    let reqData = req.body;
-    let message = new postschema(reqData);
-    post.save(function (err, messagedata) {
+exports.sendmessage=function(req,res){  //create
+  chatschema.create([{
+    message:req.body.message,
+    
+}], (err,mess)=>{
+  // console.log(req.body);
     if (err) {
-      res.status(500).json({ status: "error", message: "Error: Something went wrong. Couldn't add your message." });
-    } else {
-      res.json({ status: "success", data: messagedata });
-    }
-  });
+        console.log("There is an error " + err);
+        return res.status(500).json({
+          status: "error",
+          message: err||"ashkriti",
+        });
+      }
+      else
+        res.json({ status: "success", data: mess });
+})
 }
 
 exports.deletemessage=function(req,res){
     let {messageid}=req.params,
     update = { status: false };
-    postschema.findOneAndUpdate({
+    chatschema.findOneAndUpdate({
       _id:messageid,status:true},
       update,
       {new:true},

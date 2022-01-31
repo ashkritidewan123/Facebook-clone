@@ -22,7 +22,7 @@ const postschema=new mongoose.Schema({
 
     postdate:{
         type:String,
-        required:true
+        // required:true
     },
 
     //comments: [{ type: Schema.Types.ObjectId, ref: 'comment' }],

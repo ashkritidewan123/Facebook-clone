@@ -2,15 +2,34 @@ const mongoose=require('mongoose');
 const postschema=require('../models/posts');
 
 exports.addpost=function(req,res){
-    let reqData = req.body;
-    let post = new postschema(reqData);
-    post.save(function (err, postdata) {
+  //   let reqData = req.body.data;
+  //   // console.log(req.body.data);
+  //   let post = new postschema(reqData);
+  //   post.save(function (err, postdata) {
+  //   if (err) {
+  //     res.status(500).json({ status: "error", message: "Error: Something went wrong. Couldn't add your post." });
+  //   } else {
+  //     res.json({ status: "success", data: postdata });
+  //   }
+  // });
+
+  postschema.create([{
+    postmedia:req.body.postmedia,
+    postdate:"test"
+}], (err,postm)=>{
+  console.log(req.body);
     if (err) {
-      res.status(500).json({ status: "error", message: "Error: Something went wrong. Couldn't add your post." });
-    } else {
-      res.json({ status: "success", data: postdata });
-    }
-  });
+        console.log("There is an error " + err);
+        return res.status(500).json({
+          status: "error",
+          message: err||"ashkriti",
+        });
+      }
+      else
+        res.json({ status: "success", data: postm });
+})
+
+
 }
 
 exports.deletepost=function(req,res){

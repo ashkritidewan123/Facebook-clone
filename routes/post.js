@@ -3,7 +3,7 @@ const post = require('../controllers/post');
 
 const router= express.Router();
 
-router.post("/",post.addpost);
+router.post("/post",post.addpost);
 router.delete("/:id", post.deletepost);
 router.put("/:postid",post.editpost);
 

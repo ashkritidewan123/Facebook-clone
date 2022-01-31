@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 const userprofileschema=require('../models/user');
+const jwt = require("jsonwebtoken");
 
 // module.exports.register=async(req,res)=>{
 //     // let reqdata=req.body;
@@ -38,13 +39,14 @@ exports.register = function (req, res) {
             });
           }
           else
-            res.json({ status: "success", data: user });
+            res.json({ status: "success", data: user.username });
     })
 };
 
 exports.loginuser=function(req,res){
     let email=req.body.email;
     let pass=req.body.password;
+    const accessTokenSecret = "youraccesstokensecret";
     userprofileschema.find({email:email,password:pass},(err,user)=>{
             if (err) {
               console.log("Error: While login" + err);
@@ -53,10 +55,23 @@ exports.loginuser=function(req,res){
                 message: "Error: Something went wrong",
               });
             }
-            res.json({
-              status: "success",
-              message: "User login successfull",
-            });
+
+            else if( user === null ){
+              return res.status(403).json({
+                status: "error",
+                message: "Error: Forbidden access wrong email or password",
+              })
+            }
+
+            // res.json({
+            //   status: "success",
+            //   message: "User login successfull",
+            // });
+
+            else{
+              const accessToken = jwt.sign({ email: email,  password: pass }, accessTokenSecret , { expiresIn: "20m" });
+              res.json({ status: "success", data: user});
+            }
     });
 };
 

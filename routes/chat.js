@@ -3,7 +3,7 @@ const chat = require('../controllers/chat');
 
 const router= express.Router();
 
-router.post("/",chat.sendmessage);
+router.post("/message",chat.sendmessage);
 router.delete("/:id",chat.deletemessage);
 
 
